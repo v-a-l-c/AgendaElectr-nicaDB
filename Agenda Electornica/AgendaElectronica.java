@@ -2,11 +2,8 @@ import java.StringBuilder;
 import java.util.Scanner;
 
 public class AgendaElectronica {
-    bool accepted = true;
     public static void main(String[] args){
-        System.Out.print(menu());
-        Scanner scanner = new Scanner(System.in);
-        String selectedOption = scanner.nextLine();
+        handleMenu();
     }
 
     private static String menu() {
@@ -20,7 +17,10 @@ public class AgendaElectronica {
         menu.append("Opción seleccionada:\n");
         return menu.toString();
     }
-    private static void handleInput(String option) {
+    private static void handleMenu() {
+        System.Out.print(menu());
+        Scanner scanner = new Scanner(System.in);
+        String selectedOption = scanner.nextLine();
         switch (selectedOption) {
         case "1":
             System.Out.print("op1");
