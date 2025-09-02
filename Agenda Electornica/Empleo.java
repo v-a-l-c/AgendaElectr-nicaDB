@@ -1,4 +1,4 @@
-public class Empleo extends Persona{
+/*public class Empleo extends Persona{
 
     private String compania;
     private String puesto;
@@ -11,4 +11,4 @@ public class Empleo extends Persona{
 
 
     //Getters y setters
-}
+}*/

@@ -2,7 +2,7 @@ import java.util.List;
 
 public class LibroDirecciones{
     
-    private Empleo empleado;
+    /*private Empleo empleado;
     private List<Cita> citas;
     private List<Nota> notas;
 
@@ -10,6 +10,6 @@ public class LibroDirecciones{
         this.empleado = empleado;
         this.citas = citas;
         this.notas = notas;
-    }
+    }*/
 
 }

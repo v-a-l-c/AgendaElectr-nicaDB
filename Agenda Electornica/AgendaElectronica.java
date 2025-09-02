@@ -1,4 +1,4 @@
-import java.StringBuilder;
+import java.lang.StringBuilder;
 import java.util.Scanner;
 
 public class AgendaElectronica {
@@ -8,8 +8,8 @@ public class AgendaElectronica {
 
     private static String menu() {
         StringBuilder menu = new StringBuilder();
-        menu.append("Seleccione la opción que desea:\n");
-        menu.append("1. Añadir registro\n");
+        menu.append("Seleccione la opcion que desea:\n");
+        menu.append("1. Anadir registro\n");
         menu.append("2. Buscar registro\n");
         menu.append("3. Eliminar registro\n");
         menu.append("4. Modificar registro\n");
@@ -18,24 +18,33 @@ public class AgendaElectronica {
         return menu.toString();
     }
     private static void handleMenu() {
-        System.Out.print(menu());
+        boolean exit = false;
         Scanner scanner = new Scanner(System.in);
-        String selectedOption = scanner.nextLine();
-        switch (selectedOption) {
-        case "1":
-            System.Out.print("op1");
-        case "2":
-            System.Out.print("op2");
-        case "3":
-            System.Out.print("op3");
-        case "4":
-            System.Out.print("op4");
-        case "5":
-            System.Out.print("Byeeee");
-            System.Exit(0);
-        default:
-            accepted = false;
-            System.Out.print(option + "is not a valid option");
+        String menu = menu();
+        while (!exit) {
+            System.out.print(menu);
+            String selectedOption = scanner.nextLine();
+            switch (selectedOption) {
+            case "1":
+                System.out.print("op1");
+                break;
+            case "2":
+                System.out.print("op2");
+                break;
+            case "3":
+                System.out.print("op3");
+                break;
+            case "4":
+                System.out.print("op4");
+                break;
+            case "5":
+                System.out.print("Byeeee");
+                exit = true;
+                break;
+            default:
+                System.out.print(selectedOption + " no es una opcion valida.\n");
+            }
         }
+        scanner.close();
     }
 }

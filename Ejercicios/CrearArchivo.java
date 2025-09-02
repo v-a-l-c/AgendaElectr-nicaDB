@@ -1,4 +1,3 @@
-package Ejercicios;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,9 +7,9 @@ public class CrearArchivo {
         try {
             File archivo = new File("ejemplo.txt");
             if (archivo.createNewFile())
-                System.Out.println("Archivo creado: " + archivo.getName())
+                System.out.println("Archivo creado: " + archivo.getName());
             else
-                System.Out.println("El archivo ya existe.");
+                System.out.println("El archivo ya existe.");
             FileWriter escritor = new FileWriter(archivo);
             escritor.write("stuff");
             escritor.close();
