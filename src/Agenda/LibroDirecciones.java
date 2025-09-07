@@ -2,12 +2,24 @@ package Agenda;
 
 import java.util.List;
 
+/**
+ * Clase que representa un libro de direcciones,
+ * el cual contiene la información de un empleado,
+ * así como sus citas y notas asociadas.
+ */
 public class LibroDirecciones{
     
     private Empleo empleado;
     private List<Cita> citas;
     private List<Nota> notas;
 
+    /**
+     * Constructor de la clase LibroDirecciones.
+     *
+     * @param empleado Empleado al que pertenece el libro
+     * @param citas Lista de citas asociadas al empleado
+     * @param notas Lista de notas asociadas al empleado
+     */
     private LibroDirecciones(Empleo empleado, List<Cita> citas,List<Nota> notas){
         this.empleado = empleado;
         this.citas = citas;
@@ -30,7 +42,6 @@ public class LibroDirecciones{
         this.citas = citas;
     }
 
-    // Getter y Setter para notas
     public List<Nota> getNotas() {
         return notas;
     }

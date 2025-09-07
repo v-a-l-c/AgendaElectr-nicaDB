@@ -5,6 +5,14 @@ import java.sql.Timestamp;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * Clase que representa una Persona dentro de la agenda electrónica.
+ * 
+ * Contiene información básica de contacto (nombre, apellidos, correo, etc.),
+ * así como listas de {@link Cita} y {@link Nota} asociadas.
+ * 
+ * Permite además guardar los datos en un archivo mediante {@link ReaderWriter}.
+ */
 public class Persona{
     
     private String nombre;
@@ -26,7 +34,9 @@ public class Persona{
 
 
     //URL, IG, Fck
-
+    /**
+     * Constructor principal para inicializar los datos de la persona.
+     */
     public Persona(String nombre, String apellido_materno, String apellido_Paterno,
                     String direcciones, String telefono, String movil,
                     String correo_Electronico, String url, String ig, String fbk){
@@ -129,6 +139,12 @@ public class Persona{
         this.fbk= fbk;
     }
 
+    /**
+     * Convierte los datos de la persona en una lista de strings
+     * para facilitar el almacenamiento en archivos.
+     *
+     * @return lista con los datos de la persona
+     */
     public List<String> personaToList(){
         List<String> data = new ArrayList<>();
         data.add(nombre);
@@ -144,16 +160,31 @@ public class Persona{
         return data;
     }
 
+    /**
+     * Agrega una nueva cita a la lista de citas de la persona.
+     *
+     * @param titulo título de la cita
+     * @param fecha fecha de la cita
+     * @param hora hora de la cita
+     */
     public void appendCita(String titulo, Date fecha, Timestamp hora){
         Cita nuevaCita = new Cita(titulo, fecha, hora);
         citas.add(nuevaCita);
     }
 
+    /**
+     * Agrega una nueva nota a la lista de notas de la persona.
+     *
+     * @param descripcion texto de la nota
+     */
     public void appendNota(String descripcion){
         Nota note = new Nota(descripcion);
         notas.add(note);
     }
 
+    /**
+     * Guarda la persona en el archivo a través de {@link ReaderWriter}.
+     */
     public void savePersona(){
         rw.appendPersona(this);
     }

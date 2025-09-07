@@ -1,7 +1,9 @@
 package Ejercicios;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,5 +41,68 @@ public class LeerArchivo {
             e.printStackTrace();
         }
         return resultados;
+    }
+
+	public static boolean modifyRegister(int numeroLinea, String nuevoContenido) {
+        try {
+            List<String> lineas = readAll();
+            if (numeroLinea < 1 || numeroLinea > lineas.size()) {
+                return false;
+            }
+            
+            lineas.set(numeroLinea - 1, nuevoContenido);
+            
+            // Reescribir el archivo completo
+            FileWriter fw = new FileWriter("agenda.data");
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            for (String linea : lineas) {
+                bw.write(linea);
+                bw.newLine();
+            }
+            
+            bw.close();
+            return true;
+            
+        } catch (IOException e) {
+            System.out.println("Error al modificar registro");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+	public static boolean delete(int numeroLinea) {
+        try {
+            List<String> lineas = readAll();
+            if (numeroLinea < 1 || numeroLinea > lineas.size()) {
+                return false;
+            }
+            
+            lineas.remove(numeroLinea - 1);
+
+            FileWriter fw = new FileWriter("agenda.data");
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            for (String linea : lineas) {
+                bw.write(linea);
+                bw.newLine();
+            }
+            
+            bw.close();
+            return true;
+            
+        } catch (IOException e) {
+            System.out.println("Error al eliminar registro");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+	public static String getRegister(int numeroLinea) {
+        List<String> lineas = readAll();
+        if (numeroLinea < 1 || numeroLinea > lineas.size()) {
+            return null;
+        }
+        return lineas.get(numeroLinea - 1);
     }
 }
