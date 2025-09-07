@@ -1,18 +1,16 @@
+package Ejercicios;
+
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class CrearArchivo {
-    public static void main(String[] args) {
+    public static void crearArchivo(){
         try {
-            File archivo = new File("ejemplo.txt");
+            File archivo = new File("agenda.data");
             if (archivo.createNewFile())
                 System.out.println("Archivo creado: " + archivo.getName());
             else
-                System.out.println("El archivo ya existe.");
-            FileWriter escritor = new FileWriter(archivo);
-            escritor.write("stuff");
-            escritor.close();
+                return;
         } catch (IOException e) {
             System.out.println("Ocurrió un error.");
             e.printStackTrace();
