@@ -1,4 +1,4 @@
-package AgendaElectornica;
+package Agenda;
 
 public class Empleo extends Persona{
 

@@ -5,12 +5,14 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-import AgendaElectornica.*;
+import Agenda.*;
+import Ejercicios.CrearArchivo;
 
 public class AgendaElectronica {
 
     private static Scanner scanner;
     public static void main(String[] args){
+        CrearArchivo.crearArchivo();
         scanner = new Scanner(System.in);
         handleMenu();
     }
@@ -140,6 +142,7 @@ public class AgendaElectronica {
         if (addCita.equals("1")) {
             addCitaToContacto(contacto);
         }
+        contacto.savePersona();
         System.out.println("Contacto agregado con éxito:");
         System.out.println(contacto.getnombre() + " " + contacto.getapellido_Paterno());
     }

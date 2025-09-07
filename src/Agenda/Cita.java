@@ -1,4 +1,4 @@
-package AgendaElectornica;
+package Agenda;
 
 import java.sql.Timestamp;
 import java.util.Date;

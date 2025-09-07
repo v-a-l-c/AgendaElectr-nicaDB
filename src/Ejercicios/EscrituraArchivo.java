@@ -1,7 +1,7 @@
 package Ejercicios;
 
-import AgendaElectornica.Cita;
-import AgendaElectornica.Persona;
+import Agenda.Cita;
+import Agenda.Persona;
 
 import java.io.FileWriter;
 import java.io.BufferedWriter;

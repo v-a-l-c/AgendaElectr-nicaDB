@@ -1,4 +1,4 @@
-package AgendaElectornica;
+package Agenda;
 
 import java.util.List;
 

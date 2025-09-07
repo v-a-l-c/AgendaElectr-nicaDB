@@ -1,4 +1,4 @@
-package AgendaElectornica;
+package Agenda;
 
 import java.util.ArrayList;
 import java.sql.Timestamp;
@@ -154,7 +154,7 @@ public class Persona{
         notas.add(note);
     }
 
-    public void writePersona(){
+    public void savePersona(){
         rw.appendPersona(this);
     }
 }
