@@ -1,4 +1,6 @@
 package Agenda;
+import java.util.List;
+
 import Ejercicios.*;
 
 public class ReaderWriter {
@@ -9,7 +11,11 @@ public class ReaderWriter {
         EscrituraArchivo.write(data);
     }
 
-    public void searchData(String querry){
-        return;
+    public List<String> searchData(String data){
+        return LeerArchivo.search(data);
+    }
+
+    public List<String> getAllData(){
+        return LeerArchivo.readAll();
     }
 }

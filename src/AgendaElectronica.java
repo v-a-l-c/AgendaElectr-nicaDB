@@ -3,6 +3,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 import java.util.Scanner;
 
 import Agenda.*;
@@ -181,9 +182,78 @@ public class AgendaElectronica {
     }
 
     private static void searchRegister() {
-        System.out.println("op2");
+        System.out.println("=== BUSCAR REGISTRO ===");
+        System.out.println("1. Buscar por cualquier texto");
+        System.out.println("2. Mostrar todos los registros");
+        System.out.println("3. Volver al menú");
+        System.out.print("Opción: ");
+        
+        String opcion = scanner.nextLine();
+        
+        switch (opcion) {
+            case "1":
+                searchData();
+                break;
+            case "2":
+                showAllRegisters();
+                break;
+            case "3":
+                return;
+            default:
+                System.out.println("Opción no válida");
+        }
     }
-    
+
+    private static void searchData() {
+        System.out.print("Ingrese el texto a buscar: ");
+        String textoBusqueda = scanner.nextLine();
+        
+        ReaderWriter rw = new ReaderWriter();
+        List<String> resultados = rw.searchData(textoBusqueda);
+        
+        if (resultados.isEmpty()) {
+            System.out.println("No se encontraron coincidencias para: " + textoBusqueda);
+        } else {
+            System.out.println("=== RESULTADOS DE BÚSQUEDA ===");
+            System.out.println("Se encontraron " + resultados.size() + " coincidencia(s):");
+            
+            for (int i = 0; i < resultados.size(); i++) {
+                System.out.println("\n--- Registro " + (i + 1) + " ---");
+                System.out.println(formatearRegistro(resultados.get(i)));
+            }
+        }
+        System.out.println("\nPresione Enter para continuar...");
+        scanner.nextLine();
+    }
+
+    private static void showAllRegisters() {
+        ReaderWriter rw = new ReaderWriter();
+        List<String> todosRegistros = rw.getAllData();
+        
+        if (todosRegistros.isEmpty()) {
+            System.out.println("No hay registros en la agenda");
+        } else {
+            System.out.println("=== TODOS LOS REGISTROS ===");
+            System.out.println("Total de registros: " + todosRegistros.size());
+            
+            for (int i = 0; i < todosRegistros.size(); i++) {
+                System.out.println("\n--- Registro " + (i + 1) + " ---");
+                System.out.println(formatearRegistro(todosRegistros.get(i)));
+            }
+        }
+        System.out.println("\nPresione Enter para continuar...");
+        scanner.nextLine();
+    }
+
+    private static String formatearRegistro(String registro) {
+        String formato = registro
+            .replace("; ", "\n")
+            .replace(" | Citas: ", "\n--- CITAS ---\n")
+            .replace(";", "\n");
+        
+        return formato;
+    }
+
     private static void deleteRegister() {
         System.out.println("op3");
     }
