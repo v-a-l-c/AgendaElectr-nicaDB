@@ -535,7 +535,7 @@ public class AgendaElectronica {
     /**
      * Reemplaza un campo específico dentro de un registro de texto.
      * @param registro Registro completo en formato plano.
-     * @param indiceCampo Índice del campo a modificar.
+     * @param indiceCampo indice del campo a modificar.
      * @param nuevoValor Nuevo valor para ese campo.
      * @return Cadena con el registro modificado.
      */
@@ -559,10 +559,10 @@ public class AgendaElectronica {
     private static void mostrarCalendario() {
         System.out.println("=== MOSTRAR CALENDARIO ===");
         
-        int año = getYear();
+        int year = getYear();
         int mes = getMes();
         
-        Calendario calendario = new Calendario(mes, año);
+        Calendario calendario = new Calendario(mes, year);
         String calendarioStr = calendario.generaCalendario();
         
         System.out.println("\n" + calendarioStr);
@@ -571,19 +571,19 @@ public class AgendaElectronica {
     }
 
     private static int getYear() {
-        int año = 0;
-        while (año < 1900 || año > 2100) {
+        int year = 0;
+        while (year < 1900 || year > 2100) {
             try {
-                System.out.print("Ingrese el año (1900-2100): ");
-                año = Integer.parseInt(scanner.nextLine());
-                if (año < 1900 || año > 2100) {
-                    System.out.println("Año fuera del rango válido (1900-2100).");
+                System.out.print("Ingrese el year (1900-2100): ");
+                year = Integer.parseInt(scanner.nextLine());
+                if (year < 1900 || year > 2100) {
+                    System.out.println("year fuera del rango válido (1900-2100).");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Por favor ingrese un número válido.");
             }
         }
-        return año;
+        return year;
     }
 
     private static int getMes() {

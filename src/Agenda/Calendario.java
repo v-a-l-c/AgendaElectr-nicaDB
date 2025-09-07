@@ -7,22 +7,22 @@ import java.util.Locale;
 /**
  * Clase que genera y representa un calendario mensual en formato de texto.
  * 
- * Se puede crear un calendario para un mes y año específicos o bien
+ * Se puede crear un calendario para un mes y year específicos o bien
  * generar el calendario del mes actual.
  */
 public class Calendario{
     private int mes;
-    private int año;
+    private int year;
     
     /**
      * Constructor de la clase Calendario.
      * 
      * @param mes número del mes (1-12)
-     * @param año año correspondiente al calendario
+     * @param year year correspondiente al calendario
      */
-    public Calendario(int mes, int año) {
+    public Calendario(int mes, int year) {
         this.mes = mes;
-        this.año = año;
+        this.year = year;
     }
 
     public int getMes() {
@@ -33,29 +33,29 @@ public class Calendario{
         this.mes = mes;
     }
 
-    public int getAño() {
-        return año;
+    public int getyear() {
+        return year;
     }
     
-    public void setAño(int año) {
-        this.año = año;
+    public void setyear(int year) {
+        this.year = year;
     }
 
     /**
-     * Genera un calendario en formato de texto para el mes y año definidos.
+     * Genera un calendario en formato de texto para el mes y year definidos.
      * 
      * @return cadena que representa el calendario con formato
      */
     public String generaCalendario() {
         StringBuilder calendario = new StringBuilder();
 
-        LocalDate primerDia = LocalDate.of(año, mes, 1);
+        LocalDate primerDia = LocalDate.of(year, mes, 1);
         String nombreMes = primerDia.getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES"));
 
-        calendario.append(" ".repeat(10)).append(nombreMes.toUpperCase()).append(" ").append(año).append("\n");
+        calendario.append(" ".repeat(10)).append(nombreMes.toUpperCase()).append(" ").append(year).append("\n");
         calendario.append("=".repeat(35)).append("\n");
 
-        calendario.append("  DOM  LUN  MAR  MIÉ  JUE  VIE  SÁB\n");
+        calendario.append("  DOM  LUN  MAR  MIE  JUE  VIE  SAB\n");
 
         int diaSemana = primerDia.getDayOfWeek().getValue();
         int espaciosInicio = (diaSemana == 7) ? 0 : diaSemana;
